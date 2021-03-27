@@ -1,0 +1,70 @@
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: limegreen;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.ibb.co/nwFK6C3/16-09-2014-pixels-food-01.png");
+  background-repeat: repeat;
+  background-size: 100px;
+  animation: animate 10s linear infinite;
+}
+@keyframes animate {
+  from {
+    background-position: top left;
+  }
+  to {
+    background-position: bottom right;
+  }
+}
+div {
+  text-align: center;
+}
+#game-title {
+  border: 10px solid black;
+  border-style: double;
+  border-radius: 25px;
+  margin: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  width: 42%;
+  background-color: beige;
+  font-size: 1.2em;
+}
+#game-area {
+  display: flex;
+  align-items: center;
+}
+#game-canvas {
+  border: 10px solid black;
+  border-style: double;
+  border-radius: 25px;
+  margin: 10px;
+  margin-left: 10%;
+  margin-bottom: 40px;
+  background-color: beige;
+}
+#containers > div {
+  display: flex;
+  border: 10px solid black;
+  border-style: double;
+  border-radius: 25px;
+  margin: 10px;
+  margin-right:10% ;
+  margin-left: 10%;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: beige;
+}
+#lives-box img {
+  width: 14%;
+}
+#control-box img {
+  width: 17%;
+}
