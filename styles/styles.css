@@ -7,6 +7,7 @@ body {
   background-repeat: repeat;
   background-size: 100px;
   animation: animate 10s linear infinite;
+
 }
 @keyframes animate {
   from {
@@ -46,6 +47,26 @@ div {
   margin-bottom: 40px;
   background-color: beige;
 }
+
+#game-over {
+  font-size: 1.2em;
+  display: flex;
+  border: 10px solid black;
+  border-style: double;
+  border-radius: 25px;
+  margin: 10px;
+  margin-left: 10%;
+  margin-bottom: 40px;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: beige;
+}
+
+
 #containers > div {
   display: flex;
   border: 10px solid black;
@@ -67,4 +88,14 @@ div {
 }
 #control-box img {
   width: 17%;
+}
+#credits{
+  border: 10px solid black;
+  border-style: double;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 50%;
+  background-color: beige;
 }

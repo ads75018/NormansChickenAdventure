@@ -11,12 +11,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
     </style>
 </head>
-
 <body>
-    
     <div id="game-title">Norman's Chicken Adventure</div>
     <div id="game-area">
         <canvas id="game-canvas"></canvas>
+        <div id="game-over">
+            <p>Oh no! Norman was caught!</p>
+            <p>Press the space bar to play again</p>
+        </div>
         <div id="containers">
             <div id="level-box">
                 <p>Stage <span id="stage-count">1</span></p>
@@ -34,9 +36,10 @@
                 </p>
                 <img src="https://i.ibb.co/48CJqd1/PixelArt.png" alt="keys">
             </div>
+            <div id="credits">Adam Ghaoul - 2021</div>
         </div>
     </div>
     <script src="js/game.js"></script>
 </body>
-<audio src="assets/demo tune.mp3" autoplay loop></audio>
+<audio src="assts/demo tune.mp3" autoplay loop></audio>
 </html>

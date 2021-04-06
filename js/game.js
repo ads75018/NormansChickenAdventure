@@ -1,13 +1,18 @@
 let canvas = document.getElementById("game-canvas");
+let gameoverscreen = document.querySelector("#game-over");
 let ctx = canvas.getContext("2d");
 let innerWidth = 640;
 let innerHeight = 576;
 let score = document.getElementById("score-count");
 let stage = document.querySelector("#level-box > p > span");
 let lives = [...document.querySelectorAll("#life-box")];
+let normy = document.getElementById("normy");
 let yumStamp = undefined;
 canvas.width = innerWidth;
 canvas.height = innerHeight;
+gameoverscreen.style.display = "none";
+let raf = undefined;
+let gameOver = false;
 
 class Actor {
   constructor(x, y, imgUrl, imgWidth) {
@@ -232,10 +237,10 @@ function updateCanvas(timestamp) {
   if (chimkenLegs.length <= 0) {
     stage.innerHTML = Number(stage.innerHTML) + 1;
     if (stage.innerHTML === "3") {
-      waiters3.push(new Waiter(160, 200, "assets/waiter.png", 35));}
-    
-    
-    for(let i = 0; i< 5; i ++) {
+      waiters3.push(new Waiter(160, 200, "assets/waiter.png", 35));
+    }
+
+    for (let i = 0; i < 5; i++) {
       chimkenLegs.push(
         new ChimkenLeg(
           Math.random() * 500,
@@ -245,7 +250,6 @@ function updateCanvas(timestamp) {
         )
       );
     }
-
 
     console.log("chimken gone");
   }
@@ -280,7 +284,7 @@ function updateCanvas(timestamp) {
     } else {
       document.body.style.backgroundColor = "limegreen";
     }
-    
+
     if (timestamp - yumStamp < 1000) {
       if (Math.random() < 0.7) {
         megaChimkens.push(new MegaChimken());
@@ -339,15 +343,20 @@ function updateCanvas(timestamp) {
         lives.splice(i, 1);
       });
 
-      if (lives.length <= 0){
-        alert("Oh no, Norman was caught!");
-        document.location.reload();
-        clearInterval(interval); 
+      if (lives.length <= 0) {
+        canvas.style.display = "none";
+        gameoverscreen.style.display = "block";
+        gameOver = true;
+
+        document.addEventListener("keyup", (event) => {
+          if (event.code === "Space") {
+            console.log("Space pressed");
+            document.location.reload();
+          }
+        });
       }
-  
-  
 
-
+      // alert("Oh no, Norman was caught!");
 
       console.log("oh no");
     }
@@ -376,16 +385,17 @@ function updateCanvas(timestamp) {
         norman.y = waiter.y - waiter.h;
       }
 
-      lives.forEach(function (life, i) {
-        life.remove(i, 1);
-        lives.splice(i, 1);
-      });
+      if (lives.length <= 0) {
+        canvas.style.display = "none";
+        gameoverscreen.style.display = "block";
+        gameOver = true;
 
-      if (lives.length <= 0){
-        alert("Oh no, Norman was caught!");
-        document.location.reload();
-        clearInterval(interval); 
-  
+        document.addEventListener("keyup", (event) => {
+          if (event.code === "Space") {
+            console.log("Space pressed");
+            document.location.reload();
+          }
+        });
       }
       console.log("Oh no, Norman was caught!");
     }
@@ -414,15 +424,17 @@ function updateCanvas(timestamp) {
         norman.y = waiter.y - waiter.h;
       }
 
-      lives.forEach(function (life, i) {
-        life.remove(i, 1);
-        lives.splice(i, 1);
-      });
+      if (lives.length <= 0) {
+        canvas.style.display = "none";
+        gameoverscreen.style.display = "block";
+        gameOver = true;
 
-      if (lives.length <= 0){
-        alert("Oh no, Norman was caught!");
-        document.location.reload();
-        clearInterval(interval); 
+        document.addEventListener("keyup", (event) => {
+          if (event.code === "Space") {
+            console.log("Space pressed");
+            document.location.reload();
+          }
+        });
       }
       console.log("oh no");
     }
@@ -451,7 +463,11 @@ function updateCanvas(timestamp) {
     }
   });
 
-  requestAnimationFrame(updateCanvas);
+  if (gameOver === false) {
+    raf = requestAnimationFrame(updateCanvas);
+  } else {
+    cancelAnimationFrame(raf);
+  }
 }
 updateCanvas();
 
@@ -483,16 +499,13 @@ let audioEat = new Audio("assets/demoChomp.wav");
 //   return coords
 // }
 
+// yumStamp = undefined;
+//     else {
+//       // document.body.style.backgroundColor = "limegreen"
+//       // il y a plus de 3 secondes
+//       const megaChimkens = [new MegaChimken()];
+//       yumStamp = undefined;
+//     }
 
-
-
-    // yumStamp = undefined;
-    //     else {
-    //       // document.body.style.backgroundColor = "limegreen"
-    //       // il y a plus de 3 secondes
-    //       const megaChimkens = [new MegaChimken()];
-    //       yumStamp = undefined;
-    //     }
-
-    //     // on vient de manger le super poulet
-    //     // document.body.style.backgroundColor = "#ff007f"
+//     // on vient de manger le super poulet
+//     // document.body.style.backgroundColor = "#ff007f"
