@@ -275,13 +275,12 @@ function updateCanvas(timestamp) {
   }
 
   if (yumStamp) {
-    if (timestamp - yumStamp < 20000) {
+    if (timestamp - yumStamp < 13000) {
       document.body.style.backgroundColor = "#ff007f";
     } else {
-      console.log("fini");
       document.body.style.backgroundColor = "limegreen";
     }
-
+    
     if (timestamp - yumStamp < 1000) {
       if (Math.random() < 0.7) {
         megaChimkens.push(new MegaChimken());
