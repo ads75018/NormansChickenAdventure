@@ -16,19 +16,17 @@
     
     <div id="game-title">Norman's Chicken Adventure</div>
     <div id="game-area">
-        <canvas id="game-canvas" width="640" height="576"></canvas>
+        <canvas id="game-canvas"></canvas>
         <div id="containers">
             <div id="level-box">
-                <p>Stage 1</p>
+                <p>Stage <span id="stage-count">1</span></p>
             </div>
             <div id="score-box">
                 <p id="lives-box">
-                    <img src="https://i.ibb.co/N96Vwcm/doggohead.png" alt="lives">
-                    <img src="https://i.ibb.co/N96Vwcm/doggohead.png" alt="lives">
-                    <img src="https://i.ibb.co/N96Vwcm/doggohead.png" alt="lives">
-                </p>
+                    <img id="life-box" src="https://i.ibb.co/N96Vwcm/doggohead.png" alt="lives">
+                    <img id="life-box" src="https://i.ibb.co/N96Vwcm/doggohead.png" alt="lives">
                 <p>Score</p>
-                <p>0000000</p>
+                <p id="score-count">0</p>
             </div>
             <div id="control-box">
                 <p>Eat as much chicken as possible and avoid the waiters!</p>
@@ -40,5 +38,5 @@
     </div>
     <script src="js/game.js"></script>
 </body>
-<audio src="assts/demo tune.mp3" autoplay loop></audio>
+<audio src="asses/demo tune.mp3" autoplay loop></audio>
 </html>
