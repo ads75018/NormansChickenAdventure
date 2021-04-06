@@ -343,8 +343,9 @@ function updateCanvas(timestamp) {
         alert("Oh no, Norman was caught!");
         document.location.reload();
         clearInterval(interval); 
-  
       }
+  
+  
 
 
 
@@ -382,7 +383,6 @@ function updateCanvas(timestamp) {
 
       if (lives.length <= 0){
         alert("Oh no, Norman was caught!");
-
         document.location.reload();
         clearInterval(interval); 
   
