@@ -116,32 +116,32 @@ class ChimkenLeg extends Actor {
 
 const chimkenLegs = [
   new ChimkenLeg(
-    Math.random() * 500,
-    Math.random() * 500,
+    Math.random() * 200 +300,
+    80,
     "assets/chimken leg.png",
     30
   ),
   new ChimkenLeg(
-    Math.random() * 500,
-    Math.random() * 500,
+    Math.random() * 200 +50,
+    50,
     "assets/chimken leg.png",
     30
   ),
   new ChimkenLeg(
-    Math.random() * 500,
-    Math.random() * 500,
+    Math.random() * 200,
+    Math.random() * 100 +200,
     "assets/chimken leg.png",
     30
   ),
   new ChimkenLeg(
-    Math.random() * 500,
-    Math.random() * 500,
+    Math.random() * 200 +300,
+    300,
     "assets/chimken leg.png",
     30
   ),
   new ChimkenLeg(
-    Math.random() * 500,
-    Math.random() * 500,
+    Math.random() * 480 +100,
+    500,
     "assets/chimken leg.png",
     30
   ),
@@ -240,7 +240,7 @@ function updateCanvas(timestamp) {
 
   if (chimkenLegs.length <= 0) {
     stage.innerHTML = Number(stage.innerHTML) + 1;
-    nextLevel.play()
+    nextLevel.play();
     if (stage.innerHTML === "3") {
       waiters3.push(new Waiter(160, 200, "assets/waiter.png", 35));
     }
@@ -347,7 +347,6 @@ function updateCanvas(timestamp) {
       lives.forEach(function (life, i) {
         life.remove(i, 1);
         lives.splice(i, 1);
-
       });
 
       if (lives.length <= 0) {
@@ -376,7 +375,7 @@ function updateCanvas(timestamp) {
       waiter.x -= 600;
     }
     if (crashWith(norman, waiter)) {
-      audioDamage.play()
+      audioDamage.play();
       if (norman.x < waiter.x + waiter.w && norman.dirX < 0) {
         norman.x = waiter.x + waiter.w + 50;
       }
@@ -396,7 +395,6 @@ function updateCanvas(timestamp) {
       lives.forEach(function (life, i) {
         life.remove(i, 1);
         lives.splice(i, 1);
-
       });
 
       if (lives.length <= 0) {
@@ -442,7 +440,6 @@ function updateCanvas(timestamp) {
       lives.forEach(function (life, i) {
         life.remove(i, 1);
         lives.splice(i, 1);
-
       });
 
       if (lives.length <= 0) {
@@ -492,12 +489,9 @@ function updateCanvas(timestamp) {
 }
 updateCanvas();
 
-// let audioMove = new Audio("assets/demoChomp.wav")
 let audioEat = new Audio("assets/demoChomp.wav");
-let audioDamage = new Audio("assets/DefenseCurl.wav")
-let nextLevel = new Audio("assets/Clamp2.wav")
-
-
+let audioDamage = new Audio("assets/DefenseCurl.wav");
+let nextLevel = new Audio("assets/Clamp2.wav");
 
 // function randomCoordinates() {
 //   const x = this.x
@@ -521,4 +515,3 @@ let nextLevel = new Audio("assets/Clamp2.wav")
 
 //   return coords
 // }
-
