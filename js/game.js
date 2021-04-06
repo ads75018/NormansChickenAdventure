@@ -245,16 +245,47 @@ function updateCanvas(timestamp) {
       waiters3.push(new Waiter(160, 200, "assets/waiter.png", 35));
     }
 
-    for (let i = 0; i < 5; i++) {
-      chimkenLegs.push(
-        new ChimkenLeg(
-          Math.random() * 500,
-          Math.random() * 500,
-          "assets/chimken leg.png",
-          30
-        )
-      );
-    }
+    chimkenLegs.push(  new ChimkenLeg(
+      Math.random() * 200 +300,
+      80,
+      "assets/chimken leg.png",
+      30
+    ),
+    new ChimkenLeg(
+      Math.random() * 200 +50,
+      50,
+      "assets/chimken leg.png",
+      30
+    ),
+    new ChimkenLeg(
+      Math.random() * 200,
+      Math.random() * 100 +200,
+      "assets/chimken leg.png",
+      30
+    ),
+    new ChimkenLeg(
+      Math.random() * 200 +300,
+      300,
+      "assets/chimken leg.png",
+      30
+    ),
+    new ChimkenLeg(
+      Math.random() * 480 +100,
+      500,
+      "assets/chimken leg.png",
+      30
+    ))
+
+    // for (let i = 0; i < 5; i++) {
+    //   chimkenLegs.push(
+    //     new ChimkenLeg(
+    //       Math.random() * 500,
+    //       Math.random() * 500,
+    //       "assets/chimken leg.png",
+    //       30
+    //     )
+    //   );
+    // }
 
     console.log("chimken gone");
   }
@@ -492,26 +523,3 @@ updateCanvas();
 let audioEat = new Audio("assets/demoChomp.wav");
 let audioDamage = new Audio("assets/DefenseCurl.wav");
 let nextLevel = new Audio("assets/Clamp2.wav");
-
-// function randomCoordinates() {
-//   const x = this.x
-//   const y = this.y
-//   return [x,y]
-// }
-
-// randomCoordinates()
-
-// function isInsideATable(x, y) {
-//   if(x)
-//   return true
-// }
-
-// function randomCoordsButNotInATable() {
-
-//   let coords = randomCoords();
-//   while (isInsideATable(coords[0], coords[1])) {
-//     coords = randomCoords()
-//   }
-
-//   return coords
-// }
