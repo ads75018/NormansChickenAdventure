@@ -338,6 +338,16 @@ function updateCanvas(timestamp) {
         life.remove(i, 1);
         lives.splice(i, 1);
       });
+
+      if (lives.length <= 0){
+        alert("Oh no, Norman was caught!");
+        document.location.reload();
+        clearInterval(interval); 
+  
+      }
+
+
+
       console.log("oh no");
     }
   });
@@ -369,7 +379,15 @@ function updateCanvas(timestamp) {
         life.remove(i, 1);
         lives.splice(i, 1);
       });
-      console.log("oh no");
+
+      if (lives.length <= 0){
+        alert("Oh no, Norman was caught!");
+
+        document.location.reload();
+        clearInterval(interval); 
+  
+      }
+      console.log("Oh no, Norman was caught!");
     }
   });
 
@@ -400,6 +418,12 @@ function updateCanvas(timestamp) {
         life.remove(i, 1);
         lives.splice(i, 1);
       });
+
+      if (lives.length <= 0){
+        alert("Oh no, Norman was caught!");
+        document.location.reload();
+        clearInterval(interval); 
+      }
       console.log("oh no");
     }
   });
