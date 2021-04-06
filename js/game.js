@@ -51,6 +51,7 @@ class Norman extends Actor {
     this.dirY = undefined;
   }
   moveUp() {
+    // audioMove.play();
     this.dirY = -1;
     this.dirX = undefined;
     this.y -= 25;
@@ -59,6 +60,7 @@ class Norman extends Actor {
     }
   }
   moveDown() {
+    // audioMove.play();
     this.dirY = 1;
     this.dirX = undefined;
     this.y += 25;
@@ -67,6 +69,7 @@ class Norman extends Actor {
     }
   }
   moveLeft() {
+    // audioMove.play();
     this.dirX = -1;
     this.dirY = undefined;
     this.img.src = "assets/norman copy.png";
@@ -77,6 +80,7 @@ class Norman extends Actor {
     }
   }
   moveRight() {
+    // audioMove.play();
     this.dirX = 1;
     this.dirY = undefined;
     this.img.src = "assets/norman.png";
@@ -236,6 +240,7 @@ function updateCanvas(timestamp) {
 
   if (chimkenLegs.length <= 0) {
     stage.innerHTML = Number(stage.innerHTML) + 1;
+    nextLevel.play()
     if (stage.innerHTML === "3") {
       waiters3.push(new Waiter(160, 200, "assets/waiter.png", 35));
     }
@@ -322,6 +327,7 @@ function updateCanvas(timestamp) {
       waiter.x -= 600;
     }
     if (crashWith(norman, waiter)) {
+      audioDamage.play();
       if (norman.x < waiter.x + waiter.w && norman.dirX < 0) {
         norman.x = waiter.x + waiter.w + 50;
       }
@@ -341,6 +347,7 @@ function updateCanvas(timestamp) {
       lives.forEach(function (life, i) {
         life.remove(i, 1);
         lives.splice(i, 1);
+
       });
 
       if (lives.length <= 0) {
@@ -369,6 +376,7 @@ function updateCanvas(timestamp) {
       waiter.x -= 600;
     }
     if (crashWith(norman, waiter)) {
+      audioDamage.play()
       if (norman.x < waiter.x + waiter.w && norman.dirX < 0) {
         norman.x = waiter.x + waiter.w + 50;
       }
@@ -384,6 +392,12 @@ function updateCanvas(timestamp) {
       if (norman.y + norman.h > waiter.y && norman.dirY > 0) {
         norman.y = waiter.y - waiter.h;
       }
+
+      lives.forEach(function (life, i) {
+        life.remove(i, 1);
+        lives.splice(i, 1);
+
+      });
 
       if (lives.length <= 0) {
         canvas.style.display = "none";
@@ -408,6 +422,7 @@ function updateCanvas(timestamp) {
       waiter.x -= 600;
     }
     if (crashWith(norman, waiter)) {
+      audioDamage.play();
       if (norman.x < waiter.x + waiter.w && norman.dirX < 0) {
         norman.x = waiter.x + waiter.w + 50;
       }
@@ -423,6 +438,12 @@ function updateCanvas(timestamp) {
       if (norman.y + norman.h > waiter.y && norman.dirY > 0) {
         norman.y = waiter.y - waiter.h;
       }
+
+      lives.forEach(function (life, i) {
+        life.remove(i, 1);
+        lives.splice(i, 1);
+
+      });
 
       if (lives.length <= 0) {
         canvas.style.display = "none";
@@ -471,8 +492,10 @@ function updateCanvas(timestamp) {
 }
 updateCanvas();
 
+// let audioMove = new Audio("assets/demoChomp.wav")
 let audioEat = new Audio("assets/demoChomp.wav");
-
+let audioDamage = new Audio("assets/DefenseCurl.wav")
+let nextLevel = new Audio("assets/Clamp2.wav")
 
 
 
@@ -499,13 +522,3 @@ let audioEat = new Audio("assets/demoChomp.wav");
 //   return coords
 // }
 
-// yumStamp = undefined;
-//     else {
-//       // document.body.style.backgroundColor = "limegreen"
-//       // il y a plus de 3 secondes
-//       const megaChimkens = [new MegaChimken()];
-//       yumStamp = undefined;
-//     }
-
-//     // on vient de manger le super poulet
-//     // document.body.style.backgroundColor = "#ff007f"
