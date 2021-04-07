@@ -202,7 +202,6 @@ function crashWith(a, b) {
 
 function updateCanvas(timestamp) {
   ctx.clearRect(0, 0, 640, 576);
-
   tables.forEach(function (table) {
     table.draw();
     if (crashWith(norman, table)) {
@@ -315,11 +314,11 @@ function updateCanvas(timestamp) {
   }
 
   if (yumStamp) {
-    if (timestamp - yumStamp < 13000) {
-      document.body.style.backgroundColor = "#ff007f";
-    } else {
-      document.body.style.backgroundColor = "limegreen";
-    }
+    // if (timestamp - yumStamp < 13000) {
+    //   document.body.style.backgroundColor = "#ff007f";
+    // } else {
+    //   document.body.style.backgroundColor = "darkblue";
+    // }
 
     if (timestamp - yumStamp < 1000) {
       if (Math.random() < 0.7) {
@@ -523,3 +522,4 @@ updateCanvas();
 let audioEat = new Audio("assets/demoChomp.wav");
 let audioDamage = new Audio("assets/DefenseCurl.wav");
 let nextLevel = new Audio("assets/Clamp2.wav");
+let gameMusic = new Audio("assets/yosi1.m4a")
